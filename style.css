@@ -1,0 +1,177 @@
+/**************/
+/* CSS RESET */
+/************/
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+:root {
+  --clr-primary: hsl(47, 88%, 63%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-500: hsl(0, 0%, 50%);
+  --clr-neutral-1000: hsl(0, 0%, 0%);
+
+  --ff-regular: "Figtree", sans-serif;
+
+  --fw-regular: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 800;
+  --fw-black: 900;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*******************/
+/* GENERAL STYLES */
+/*****************/
+body {
+  min-height: 100dvh;
+  background-color: var(--clr-primary);
+
+  font-family: var(--ff-regular);
+  font-weight: var(--fw-regular);
+  font-size: clamp(0.87rem, 1dvw, 1rem);
+  padding: 0 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--clr-neutral-100);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--clr-neutral-1000);
+
+  max-width: 24rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  box-shadow: 8px 8px var(--clr-neutral-1000);
+
+  > header .card-header {
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  > .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    > .card-category {
+      background-color: var(--clr-primary);
+      max-width: fit-content;
+
+      border-radius: 4px;
+      padding: 4px 12px;
+
+      font-weight: var(--fw-black);
+      font-size: 0.75rem;
+    }
+    > .card-date {
+      font-weight: var(--fw-semi-bold);
+      font-size: 12px;
+    }
+
+    > .card-title {
+      font-weight: var(--fw-black);
+      font-size: clamp(1.25rem, 2dvw, 1.5rem);
+    }
+
+    > .card-title:hover {
+      color: var(--clr-primary);
+      cursor: pointer;
+    }
+
+    > .card-description {
+      color: var(--clr-neutral-500);
+      line-height: 1.5;
+    }
+  }
+
+  > .card-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    font-size: 14px;
+    font-weight: var(--fw-black);
+
+    > img {
+      width: 32px;
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 2rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
